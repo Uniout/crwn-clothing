@@ -1,18 +1,13 @@
-import { initializeApp } from 'firebase/app';
-import { 
+import { initializeApp } from "firebase/app";
+import {
   getAuth,
   signInWithRedirect,
   signInWithPopup,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword
-} from 'firebase/auth';
-import {
-  getFirestore,
-  doc,
-  getDoc,
-  setDoc,
-} from 'firebase/firestore';
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBiXN2y6KQbjppQJQMkuKAShNNNyM8tszs",
@@ -20,7 +15,7 @@ const firebaseConfig = {
   projectId: "crwn-clothing-db-3b986",
   storageBucket: "crwn-clothing-db-3b986.appspot.com",
   messagingSenderId: "667777491627",
-  appId: "1:667777491627:web:3850bb4d1d21a529bdcdee"
+  appId: "1:667777491627:web:3850bb4d1d21a529bdcdee",
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
@@ -31,14 +26,19 @@ googleProvider.setCustomParameters({
 });
 
 export const auth = getAuth();
-export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider);
-export const signInWithGoogleRedirect = () => signInWithRedirect(auth, googleProvider);
+export const signInWithGooglePopup = () =>
+  signInWithPopup(auth, googleProvider);
+export const signInWithGoogleRedirect = () =>
+  signInWithRedirect(auth, googleProvider);
 export const db = getFirestore();
 
-export const createUserDocumentFromAuth = async (userAuth, additionalInformation={}) => {
+export const createUserDocumentFromAuth = async (
+  userAuth,
+  additionalInformation = {}
+) => {
   if (!userAuth) return;
-  
-  const userDocRef = doc(db, 'users', userAuth.uid);
+
+  const userDocRef = doc(db, "users", userAuth.uid);
 
   const userSnapshot = await getDoc(userDocRef);
 
@@ -54,7 +54,7 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
         ...additionalInformation,
       });
     } catch (error) {
-      console.log('error creating the user', error.message);
+      console.log("error creating the user", error.message);
     }
   }
 
