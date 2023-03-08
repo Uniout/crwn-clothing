@@ -1,3 +1,5 @@
+import CartIcon from "../../components/cart-icon/cart-icon.component";
+import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
 import { useContext } from "react";
 
 import { Outlet, Link } from "react-router-dom";
@@ -30,7 +32,9 @@ const Navigation = () => {
               SIGN IN
             </Link>
           )}
+          <CartIcon />
         </div>
+        <CartDropdown />
       </div>
       <Outlet />
     </>
