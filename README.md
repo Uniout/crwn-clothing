@@ -1,5 +1,5 @@
 # CRWN-CLOTHING
-[CRWN-CLOTHING](crwn-clothing-uniout.netlify.app)
+[CRWN-CLOTHING](https://crwn-clothing-uniout.netlify.app/)
 
 
 E-commerce platform for fictional company.
